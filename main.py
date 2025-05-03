@@ -10,6 +10,7 @@ def handle_encoding(file_path, filename_output="output.bin"):
     tree = tree_code.build_shanon_tree(freq)
     codes = tree_code.coding(tree)
     writing.write_compressed(codes, text, filename_output)
+    return codes
 
 def handle_decoding():
     pass
