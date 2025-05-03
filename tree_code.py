@@ -26,7 +26,8 @@ def optimal_separation(freq: dict) -> int:
 
     return index
 
-def build_shanon_tree(freq):
+def build_shanon_tree(freq: dict) -> Tree_Node:
+    """Build Shanon Tree"""
     if len(freq) == 1:
         char, freq = freq[0]
         return Tree_Node(chars=[char], freq=freq)
@@ -37,7 +38,8 @@ def build_shanon_tree(freq):
 
     return Tree_Node(chars=left_node.chars + right_node.chars, freq=left_node.freq + right_node.freq, left=left_node, right=right_node)
 
-def coding(node, prefix="", codes={}):
+def coding(node: Tree_Node, prefix="", codes={}) -> dict:
+    """Encoding Shanon Tree"""
     if node.left is None and node.right is None:
         for char in node.chars:
             codes[char] = prefix
@@ -49,9 +51,3 @@ def coding(node, prefix="", codes={}):
         coding(node.right, prefix +"1", codes)
 
     return codes
-
-fr = find_frequencies('test_data')
-print(fr)
-tree = build_shanon_tree(fr)
-codes = coding(tree)
-print(codes)

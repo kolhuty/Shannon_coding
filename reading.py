@@ -14,9 +14,12 @@ def find_frequencies(file_path: str) -> dict:
             frequency[sym] += 1
             total_count += 1
 
-    frequencies = {sym: count/total_count for sym, count in frequency.items()}
-    sorted_frequencies = dict(sorted(frequencies.items(), key=lambda x: x[1], reverse=True))
+    freq = {sym: count/total_count for sym, count in frequency.items()}
+    sorted_freq = sorted(freq.items(), key=lambda x: x[1], reverse=True)
 
-    return sorted_frequencies
+    return sorted_freq
 
-print(find_frequencies('test_data'))
+def byte_text(file_path: str) -> bytes:
+    with open(file_path, 'rb') as f:
+        text = f.read()
+    return text
