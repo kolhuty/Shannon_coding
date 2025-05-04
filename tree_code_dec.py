@@ -11,22 +11,23 @@ def build_tree(codes: dict):
         node = root
         for bit in code:
             if bit == '0':
-                node.left = Node()
+                if not node.left:
+                    node.left = Node()
                 node = node.left
             else:
-                node.right = Node()
+                if not node.right:
+                    node.right = Node()
                 node = node.right
         node.char = char
     return root
 
 def decoding(byte_text, root):
     text = ''.join(f'{byte:08b}' for byte in byte_text)
-
     result = bytearray()
     node = root
     for bit in text:
         node = node.left if bit == '0' else node.right
-        if node.char:
+        if node.char is not None:
             result.append(node.char)
             node = root
     return bytes(result)
