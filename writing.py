@@ -13,3 +13,7 @@ def write_compressed(codes, text, filename):
 
     with open(filename, 'wb') as f:
         f.write(bytes_data)
+
+def write_decode_data(bytes_data, filename):
+    with open(filename, 'wb') as f:
+        f.write(bytes_data)

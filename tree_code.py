@@ -1,4 +1,3 @@
-from reading import find_frequencies
 
 class Tree_Node:
     def __init__(self, chars=None, freq=0, left=None, right=None):
