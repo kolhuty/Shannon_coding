@@ -21,20 +21,16 @@ def handle_decoding(codes, file_path, file_output="output_dec.bin"):
 def shanon_main():
     """Основная логика программы."""
     arg = sys.argv[1]
-    codes = {
-        65: '0',  # A
-        66: '10',  # B
-        67: '11'  # C
-    }
-    #try:
-    if arg == '-d':
-        handle_decoding(codes, 'test_data_dec.bin')
-    else:
-        handle_encoding(sys.argv[2])
+    codes = handle_encoding('test_data')
+    try:
+        if arg == '-d':
+            handle_decoding(codes, 'output.bin')
+        else:
+            handle_encoding(sys.argv[2])
 
-'''    except Exception:
+    except Exception:
         sys.stderr.write("\nOperation cancelled\n")
         sys.exit(1)
-'''
+
 if __name__ == '__main__':
     shanon_main()
