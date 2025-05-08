@@ -22,3 +22,12 @@ def write_decode_data(bytes_data, filename):
     """Записывает байт-код в файл"""
     with open(filename, 'wb') as f:
         f.write(bytes_data)
+
+
+def dict_to_json(data: dict[int, str], filename: str = "codes.json"):
+    import json
+    """Записывает словарь в JSON-файл"""
+    json_data = {str(k): v for k, v in data.items()}
+
+    with open(filename, 'w', encoding='utf-8') as f:
+        json.dump(json_data, f, ensure_ascii=False)

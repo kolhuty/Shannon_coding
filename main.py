@@ -4,6 +4,7 @@ import writing
 from encoding import Encode
 from decoding import Decode
 
+
 def handle_encoding(file_path, filename_output="output.bin"):
     try:
         text = reading.byte_text(file_path)
@@ -11,7 +12,7 @@ def handle_encoding(file_path, filename_output="output.bin"):
         encoder = Encode(freq)
         codes = encoder.get_codes()
         writing.write_compressed(codes, text, filename_output)
-        return codes
+        writing.dict_to_json(codes)
     except FileNotFoundError:
         sys.stderr.write("\nFile not found\n")
         sys.exit(3)

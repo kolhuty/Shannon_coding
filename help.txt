@@ -6,5 +6,5 @@ Usage:
 
 Options:
   -d          Decode mode (requires dictionary)
-  -o FILE     Output file [default: output.bin for encode, output_dec.bin]
-  --help          Show help
+  -o FILE     Output file [default: output.bin for encode, output_dec.bin for decode]
+  --help      Show help
