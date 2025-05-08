@@ -1,4 +1,3 @@
-
 class Node:
     def __init__(self, char=None):
         self.char = char
@@ -25,6 +24,7 @@ class Decode():
             node.char = char
 
     def decoding(self, byte_text):
+        """По построенному дереву кодов ищет наиболее "близкий" к коду из текста символ"""
         text = ''.join(f'{byte:08b}' for byte in byte_text)
         result = bytearray()
         self._build_tree()

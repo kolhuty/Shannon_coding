@@ -1,0 +1,10 @@
+Shannon Encoder/Decoder Tool
+
+Usage:
+  Encode: ./program INPUT_FILE [OPTIONS]
+  Decode: ./program -d INPUT_FILE DICT_FILE [OPTIONS]
+
+Options:
+  -d          Decode mode (requires dictionary)
+  -o FILE     Output file [default: output.bin for encode, output_dec.bin]
+  --help          Show help

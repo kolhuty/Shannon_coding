@@ -1,6 +1,10 @@
 from collections import defaultdict
 
 def find_frequencies(file_path: str) -> dict:
+    """
+    Считывает файл побайтово и строит по нему словарь частот встречающихся символов.
+    Используется для encode
+    """
     frequency = defaultdict(int)
     total_count = 0
 
@@ -15,11 +19,18 @@ def find_frequencies(file_path: str) -> dict:
             total_count += 1
 
     freq = {sym: count/total_count for sym, count in frequency.items()}
-    sorted_freq = sorted(freq.items(), key=lambda x: x[1], reverse=True)
 
-    return sorted_freq
+    return freq
+
+def json_codes(file_path: str) -> dict:
+    """Считывает json-файл сo словарем для декодирования"""
+    import json
+    with open(file_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+        return {int(k): v for k, v in data.items()}
 
 def byte_text(file_path: str) -> bytes:
+    """Считывает файл полностью"""
     with open(file_path, 'rb') as f:
         text = f.read()
     return text
